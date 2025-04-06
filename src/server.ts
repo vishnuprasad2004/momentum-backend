@@ -114,16 +114,6 @@ async function sendPushNotificationsAsync() {
         console.log("Error sending notification:", error);
     }
 }
-sendPushNotificationsAsync();
-
-// function main() {
-//   const randomOffset = Math.floor(Math.random() * 1000 * 60 * 60); // Random offset to avoid all notifications at once
-
-//   // Schedule the task to run every 3 hours
-//   setInterval(async () => {
-//     await sendPushNotificationsAsync();
-//   }, BASE_INTERVAL_MS + randomOffset);
-
-// }
-
-// main();
+if(require.main === module) {
+    sendPushNotificationsAsync();
+}
