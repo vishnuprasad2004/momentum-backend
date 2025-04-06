@@ -2,7 +2,6 @@ import generateNotificationMessage from "./service/openai";
 import { Expo, ExpoPushMessage, ExpoPushTicket } from "expo-server-sdk";
 import dotenv from "dotenv";
 import supabase from "./service/supabase";
-import cron from "node-cron";
 dotenv.config();
 
 // types
@@ -39,20 +38,17 @@ async function sendPushNotificationsAsync() {
 
         // for each user, get their tasks and send a notification if they have any tasks due in the next 3 hours
         for (let i = 0; i < users.length; i++) {
-            // console.log(`User ${i + 1}:`, users[i]);
-
+            
             const { id, name, user_push_token, last_notified } = users[i] as User;
 
-            const lastNotifiedDate = new Date(last_notified);
-            const now = new Date();
-            const timeSinceLastNotified = now.getTime() - lastNotifiedDate.getTime();
-            const shouldNotify = timeSinceLastNotified >= BASE_INTERVAL_MS;
+            // const lastNotifiedDate = new Date(last_notified);
+            // const now = new Date();
+            // const timeSinceLastNotified = now.getTime() - lastNotifiedDate.getTime();
+            // const shouldNotify = timeSinceLastNotified >= BASE_INTERVAL_MS;
 
             // Check if user_push_token is valid
-            if (!Expo.isExpoPushToken(user_push_token) || !shouldNotify) {
-                console.log(
-                    `Push token ${user_push_token} is not valid for user ${name} OR We cannot notify them.`
-                );
+            if (!Expo.isExpoPushToken(user_push_token)) {
+                console.log(`Push token ${user_push_token} is not valid for user ${name} OR We cannot notify them.`);
                 continue;
             }
 
@@ -93,8 +89,7 @@ async function sendPushNotificationsAsync() {
                 priority: "high",
             });
         }
-        // console.table(messages);
-        // console.log(messages);
+
         const tickets: ExpoPushTicket[] = await expo.sendPushNotificationsAsync(messages);
         
         const logs = await supabase.from("logs").insert([
