@@ -1,0 +1,32 @@
+{
+  "name": "momentum-backend",
+  "version": "1.0.0",
+  "main": "dist/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "node dist/server.js"
+  },
+  "keywords": [
+    "Momentum",
+    "React Native",
+    "Expo",
+    "Notifications"
+  ],
+  "author": "Vishnu Prasad Korada",
+  "license": "MIT",
+  "description": "The backend server for the Momentum App to handle all the Push Notifications and other backend services.",
+  "devDependencies": {
+    "@types/node": "^22.12.0",
+    "@types/node-cron": "^3.0.11",
+    "dotenv": "^16.4.7",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.48.1",
+    "expo-server-sdk": "^3.13.0",
+    "node-cron": "^3.0.3",
+    "openai": "^4.82.0"
+  }
+}
