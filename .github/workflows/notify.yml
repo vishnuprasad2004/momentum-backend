@@ -2,7 +2,7 @@ name: Scheduled Push Notification
 
 on:
   schedule:
-    - cron: '0 */3 * * *' # Every 3 hours (UTC)
+    - cron: '0 */2 * * *' # Every 3 hours (UTC)
   workflow_dispatch: # Optional manual trigger
 
 jobs:
