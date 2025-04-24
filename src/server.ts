@@ -1,4 +1,4 @@
-import generateNotificationMessage from "./service/openai";
+import { generateNotificationMessage, generateMotivationalMessage } from "./service/openai";
 import { Expo, ExpoPushMessage, ExpoPushTicket } from "expo-server-sdk";
 import dotenv from "dotenv";
 import supabase from "./service/supabase";
@@ -17,6 +17,8 @@ type User = {
 
 // Base notification interval (3 hours) in milliseconds
 const BASE_INTERVAL_MS = 3 * 60 * 60 * 1000;
+
+const notificationHeaders = ["📌 Quick Reminder", "Heads Up!", "Just a Nudge 🤏", "Friendly Reminder", "Keep it Moving 🙆!", "Don't Forget!", "Time to Shine ✨!", "Raise up your Aura!"];
 
 // Initialize Expo SDK
 let expo = new Expo({});
@@ -64,6 +66,16 @@ async function sendPushNotificationsAsync() {
             // No tasks found for this user
             if (!todos || todos.length === 0) {
                 console.log("No tasks found or error fetching tasks.");
+                if (Math.random() < 0.4) { // 40% chance to send a motivational message
+                    const motivationalMessage = await generateMotivationalMessage();
+                    messages.push({
+                        to: user_push_token,
+                        channelId: "default",
+                        title: notificationHeaders[Math.floor(Math.random() * notificationHeaders.length)],
+                        body: motivationalMessage || "Rise up and do your duty to yourself!, was that good enough motivation for you ? Get cracking!",
+                        priority: "high",
+                    })
+                }
                 continue;
             }
 
@@ -84,7 +96,7 @@ async function sendPushNotificationsAsync() {
             messages.push({
                 to: user_push_token,
                 channelId: "default",
-                title: "Quick Reminder",
+                title: notificationHeaders[Math.floor(Math.random() * notificationHeaders.length)],
                 body: notificationMessage || "You have a task due soon!",
                 priority: "high",
             });
