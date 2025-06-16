@@ -8,3 +8,7 @@
 - ✅ Supabase Backend – Secure user authentication & task management 
 - ✅ Redux Toolkit – Efficient state management for a smooth experience
 - ✅ Offline Support – Access tasks anytime
+
+
+
+website - gh-pages
