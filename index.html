@@ -10,37 +10,108 @@
 	<title>Momentum App</title>
 </head>
 <body>
-	<main class=" bg-gradient-to-r from-[#ff7f2a] to-[#e16614]">
-		<div class="flex lg:flex-row flex-col items-center justify-center">
-			<div class="lg:w-xl">
-				<img src="./assets/images/logo-l.png" alt="" class="logo">
-				<h1 class="">Get ready to <span class="highlight">supercharge</span> your goals and <span class="highlight">productivity</span> with Momentum.</h1>
-				<a id="download-btn" href="https://github.com/vishnuprasad2004/momentum/releases/download/v2.0.5-beta/application-07f1ae49-eadd-4a59-bc87-2904669f72c3.apk" target="_blank">
-					<button class="download-btn">
-						<i class="fa-brands fa-github"></i>
-						<span>Download Now from Github</span>
-					</button>
-				</a>
-			</div>
-			<dialog id="qr-dialog" class="qr-dialog">
-				<button class="close-btn" onclick="document.getElementById('qr-dialog').close()">
-					<i class="fa-solid fa-xmark"></i>	
-				</button>
-				<div class="qr-section">
-					<h2>Scan the QR Code to Download</h2>
-					<p>Open the link in your mobile browser to download the app.</p>
-					<img src="./assets/images/qr.png" alt="">
+	<header class="w-full">
+		<nav class="nav flex lg:flex-row items-center justify-between lg:px-12 p-4">
+			<a href="/">
+				<div class="nav-left flex flex-row items-center gap-2">
+					<img src="./assets/images/logo-o-m.png" alt="Momentum Logo" class="nav-logo w-12">
+					<span class="nav-title font-bold text-[#ff7f2a]">Momentum</span>
 				</div>
-			</dialog>
-			
-			<!-- screenshots -->
-			<div class="flex flex-wrap justify-center items-end gap-4 mt-10">
-				<img src="./assets/screenshots/2.jpeg" alt="" class="screenshot w-[19%]">
-				<img src="./assets/screenshots/1.jpeg" alt="" class="screenshot w-[16%]">
+			</a>
+			<div class="nav-left hidden lg:flex lg:flex-row items-center gap-14 lg:pr-12 font-semibold">
+				<a href="#features"><p>Features</p></a>
+				<a href="#howdoesitwork"><p>How does it work ?</p></a>
+				<a href="https://github.com/vishnuprasad2004/momentum" target="_blank">Source Code</a>
+				<a href="https://github.com/vishnuprasad2004/momentum/releases/download/v2.0.5-beta/application-07f1ae49-eadd-4a59-bc87-2904669f72c3.apk" class="download-btn">Download App</a>
 			</div>
+			<div class="nav-left lg:hidden lg:flex-row items-center gap-14 lg:pr-12 font-semibold">
+				<button id="mobile-menu-btn">
+					<i class="fa-solid fa-bars text-xl"></i>
+				</button>
+			</div>
+		</nav>
+		<div class="flex flex-col items-left font-semibold lg:hidden hidden duration-[6000] p-4" id="mobile-menu">
+			<a href="#features"><p>Features</p></a>
+			<a href="#howdoesitwork"><p>How does it work ?</p></a>
+			<a href="https://github.com/vishnuprasad2004/momentum" target="_blank">Source Code</a>
 		</div>
+	</header>
+
+	<main class="px-3">
+		<div class="bg-gradient-to-t from-[#ff7f2a00] to-[#ff7f2a77] w-full h-full rounded-lg p-8 text-black font-semibold">
+			<div class="flex lg:flex-row flex-col items-center justify-around gap-10">
+				<div class="lg:pt-10 lg:pl-12 flex gap-3 lg:w-3xl flex-col">
+	
+					<h1 class="lg:text-5xl font-semibold text-2xl">Get ready to supercharge your goals and productivity with Momentum.</h1>
+					<p class="lg:text-[16px]">Momentum is an AI-powered task manager that drives productivity with achievements, badges, and intelligent push notifications to help you complete tasks on time.</p>
+					<!-- action buttons -->
+					<div class="actions flex flex-col lg:flex-row gap-3 items-center">
+						<button class="flex flex-row items-center gap-2 primary-btn p-2 px-5 bg-[#ff7f2a] rounded-lg cursor-pointer lg:hover:bg-[#e16614] download-btn">
+							<i class="fa-solid fa-download"></i>
+							<p>Download Now</p>
+						</button>
+						<a href="https://github.com/vishnuprasad2004/momentum" target="_blank">
+							<button class="flex flex-row items-center gap-2 secondary-btn p-2 lg:px-4 border border-2 border-[#ff7f2a] rounded-lg cursor-pointer">
+								<i class="fa-brands fa-github"></i>
+								<p>View Source Code</p>
+							</button>
+						</a>
+					</div>
+				</div>
+				<div class="relative flex flex-row items-center mt-10 -translate-x-2 lg:translate-x-0">
+					<img src="./assets/images/splash-screen.png" alt="" class="screenshot w-[120px] lg:w-[200px] lg:rounded-3xl rounded-2xl shadow-lg shadow-black/30 z-1">
+					<img src="./assets/screenshots/2.jpeg" alt="" class="absolute screenshot w-[120px] lg:w-[200px] lg:rounded-3xl rounded-2xl shadow-lg shadow-black/30 lg:-translate-x-30 -translate-x-20 -translate-y-10 z-0">
+					<img src="./assets/screenshots/1.jpeg" alt="" class="absolute screenshot w-[120px] lg:w-[200px] lg:rounded-3xl rounded-2xl shadow-lg shadow-black/30 lg:translate-x-30 lg:translate-y-30 translate-x-25 translate-y-5 z-1">
+				</div>
+			</div>
+
+			<!-- Features -->
+			<div id="features" class="features-section lg:mt-40 mt-10 p-4">
+				<h1 class="lg:text-5xl font-semibold text-3xl text-center">Features</h1>
+				<div class="features-list mt-10 flex lg:flex-row flex-col items-center justify-around gap-10">
+					<div class="feature-card flex flex-col items-center gap-4 p-4 rounded-lg shadow-lg shadow-black/10 border border-2 border-[#ff7f2a]">
+						<i class="fa-solid fa-bolt text-5xl text-[#ff7f2a]"></i>
+						<h2 class="text-2xl font-semibold">AI-Powered Task Management</h2>
+						<p class="text-center">Leverage the power of AI to organize, prioritize, and manage your tasks efficiently.</p>
+					</div>
+					<div class="feature-card flex flex-col items-center gap-4 p-4 rounded-lg shadow-lg shadow-black/10 border border-2 border-[#ff7f2a]">
+						<i class="fa-solid fa-trophy text-5xl text-[#ff7f2a]"></i>
+						<h2 class="text-2xl font-semibold">Achievements & Badges</h2>
+						<p class="text-center">Stay motivated with a gamified experience that rewards you for completing tasks.</p>
+					</div>
+					<div class="feature-card flex flex-col items-center gap-4 p-4 rounded-lg shadow-lg shadow-black/10 border border-2 border-[#ff7f2a]">
+						<i class="fa-solid fa-bell text-5xl text-[#ff7f2a]"></i>
+						<h2 class="text-2xl font-semibold">Intelligent Notifications</h2>
+						<p class="text-center">Receive smart reminders and notifications to keep you on track and focused.</p>
+					</div>
+			</div>
+
+			<!-- How does it work ? ... I don't remember to be honest -->
+	
+
+		</div>
+		<dialog id="qr-dialog" class="qr-dialog">
+			<button class="close-btn" onclick="document.getElementById('qr-dialog').close()">
+				<i class="fa-solid fa-xmark"></i>	
+			</button>
+			<div class="qr-section flex flex-col items-center">
+				<h2>Scan the QR Code to Download</h2>
+				<p class="text-md">Open the link in your mobile browser to download the app.</p>
+				<img src="./assets/images/qr.png" alt="" class="select-none">
+			</div>
+		</dialog>
 	</main>
-	<script src="./script.js"></script>
+
+	<footer>
+		<div class="footer-content flex flex-col lg:flex-row items-center justify-between p-4 gap-4">
+			<p>© 2025 Momentum. All rights reserved.</p>
+		</div>
+	</footer>
+
+
+	<!-- bg-gradient-to-r from-[#ff7f2a] to-[#e16614] -->
+	
+	<script defer src="./script.js"></script>
 </body>
 
 </html>
