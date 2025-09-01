@@ -7,6 +7,7 @@ function isMobileDevice() {
 	return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 }
 
+document.getElementById("year").textContent = new Date().getFullYear();
 
 function showQr() {
 	qrDialog.showModal();

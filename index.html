@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,6 +18,7 @@
 					<span class="nav-title font-bold text-[#ff7f2a]">Momentum</span>
 				</div>
 			</a>
+			<!-- nav section - laptop -->
 			<div class="nav-left hidden lg:flex lg:flex-row items-center gap-14 lg:pr-12 font-semibold">
 				<a href="#features"><p>Features</p></a>
 				<a href="#howdoesitwork"><p>How does it work ?</p></a>
@@ -30,10 +31,11 @@
 				</button>
 			</div>
 		</nav>
+		<!-- nav section - mobile -->
 		<div class="flex flex-col items-left font-semibold lg:hidden hidden duration-[6000] p-4" id="mobile-menu">
 			<a href="#features"><p>Features</p></a>
 			<a href="#howdoesitwork"><p>How does it work ?</p></a>
-			<a href="https://github.com/vishnuprasad2004/momentum" target="_blank">Source Code</a>
+			<!-- <a href="https://github.com/vishnuprasad2004/momentum" target="_blank">Source Code</a> -->
 		</div>
 	</header>
 
@@ -51,7 +53,7 @@
 							<p>Download Now</p>
 						</button>
 						<a href="https://github.com/vishnuprasad2004/momentum" target="_blank">
-							<button class="flex flex-row items-center gap-2 secondary-btn p-2 lg:px-4 border border-2 border-[#ff7f2a] rounded-lg cursor-pointer">
+							<button class="flex flex-row items-center gap-2 secondary-btn p-2 lg:px-4 border border-2 border-[#ff7f2a] rounded-lg cursor-pointer bg-white">
 								<i class="fa-brands fa-github"></i>
 								<p>View Source Code</p>
 							</button>
@@ -85,9 +87,33 @@
 						<p class="text-center">Receive smart reminders and notifications to keep you on track and focused.</p>
 					</div>
 			</div>
+			
+
 
 			<!-- How does it work ? ... I don't remember to be honest -->
-	
+			<div id="howdoesitwork" class="howdoesitwork-section lg:mt-40 mt-10 p-4">
+				<h1 class="lg:text-5xl font-semibold text-3xl text-center mb-10 w-[110%]">How it works ?</h1>
+				<div class="demo-video-section flex flex-col lg:flex-row items-center gap-4">
+					<!-- linkedin embeded demo video -->
+					<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7315774887002820610?compact=1" frameborder="0" allowfullscreen="" class="rounded-lg lg:w-[450px] lg:h-[400px] w-[120%] h-[300px] mt-10" title="Embedded post"></iframe>
+					<div class="text-center text-left lg:w-2/3 w-[150%] mt-10">
+						<p>
+							Momentum is a AI powered Smart Notification system used for efficent Task Management. It is made using React Native and Expo SDK + framework for the app itself. It uses a Node.js + Supabase (PostgreSQL) backend to handle authentication, task storage, and notification generation. The notifications are powered by an AI model hosted on a separate server, which analyzes user behavior and task data to send timely and relevant reminders. It also features a gamified achievement system to motivate users to complete their tasks.  
+							The app authenticates users securely with JWT tokens and persists data across devices through Supabase’s hosted database and APIs.
+						</p>
+						<div class="tech-stack mt-10 flex flex-wrap items-center justify-center gap-4">
+							<h2 class="text-2xl font-semibold w-full text-center">Tech Stack</h2>	
+							<img src="https://img.shields.io/badge/react_native-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB">
+							<img src="https://img.shields.io/badge/expo-1C1E24?style=for-the-badge&logo=expo&logoColor=#D04A37">
+							<img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white"/>
+							<img src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white">
+							<img src="https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white"/>
+							<img src="https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white"/>
+						</div>
+					</div>
+				</div>
+			</div>
+
 
 		</div>
 		<dialog id="qr-dialog" class="qr-dialog">
@@ -96,15 +122,15 @@
 			</button>
 			<div class="qr-section flex flex-col items-center">
 				<h2>Scan the QR Code to Download</h2>
-				<p class="text-md">Open the link in your mobile browser to download the app.</p>
+				<p class="text-sm">Open the link in your mobile browser to download the app.</p>
 				<img src="./assets/images/qr.png" alt="" class="select-none">
 			</div>
 		</dialog>
 	</main>
 
 	<footer>
-		<div class="footer-content flex flex-col lg:flex-row items-center justify-between p-4 gap-4">
-			<p>© 2025 Momentum. All rights reserved.</p>
+		<div class="footer-content text-center p-4">
+			<p>© <span id="year"></span> Momentum. All rights reserved.</p>
 		</div>
 	</footer>
 
